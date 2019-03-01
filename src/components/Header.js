@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import logo from './../logo.svg';
 import './../App.css';
 
-export default class  Header extends Component {
-  render() {
+
+const Header=(props)=>{
     return (
        <div className="container">
           <div className="row">
@@ -14,6 +14,6 @@ export default class  Header extends Component {
         </div>
     );
   }
-}
 
+export default Header;
 
