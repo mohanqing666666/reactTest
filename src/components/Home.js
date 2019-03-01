@@ -6,8 +6,17 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            age: props.initialAge
+            age: props.initialAge,
+            status: 0
         }
+        setTimeout( ()=>{
+            this.setState({
+            status:props.initialAge
+        })
+        },2000
+
+        )
+
     }
 
     onMakeOlder() {
@@ -24,6 +33,7 @@ export default class Home extends Component {
              <div className="col-xs-1 col-xs-offset-11">
 
                <div>{this.props.children}</div>
+                <p>status:{this.state.status}</p>
               <div>your name is {this.props.name}, your age is {this.state.age}</div>
               <button onClick={() => {this.onMakeOlder()}} className="btn btn-primary">Make me older</button>
              </div>
