@@ -5,6 +5,9 @@ import Header from './components/Header';
 import Home from './components/Home';
 
   class App extends Component {
+      onGreet(age){
+          alert(age);
+      }
   render() {
           let content="";
           if(true){
@@ -29,7 +32,7 @@ import Home from './components/Home';
         </div>
         <div className="row">
           <div className="col-xs-1 col-xs-offset-11">
-            <Home name={"max"} initialAge={12} user={user} >
+            <Home name={"max"} initialAge={12} user={user} greet={this.onGreet} >
             <p>I am child </p>
             </Home>
           </div>
