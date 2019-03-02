@@ -5,8 +5,20 @@ import Header from './components/Header';
 import Home from './components/Home';
 
   class App extends Component {
+      constructor(){
+          super();
+          this.state={
+              homeLink:"homeLink"
+          }
+
+      }
       onGreet(age){
           alert(age);
+      }
+      onChangeLinkName(newName){
+          this.setState({
+              homeLink:newName
+          })
       }
   render() {
           let content="";
@@ -27,17 +39,17 @@ import Home from './components/Home';
           </div>
         <div className="row">
             <div className="col-xs-1 col-xs-offset-11">
-            <Header/>
+            <Header  linkHeader={this.state.homeLink}/>
             </div>
         </div>
         <div className="row">
           <div className="col-xs-1 col-xs-offset-11">
-            <Home name={"max"} initialAge={12} user={user} greet={this.onGreet} >
+            <Home name={"max"} initialAge={12} user={user} greet={this.onGreet} changeLink={this.onChangeLinkName.bind(this)}  initialName={this.state.homeLink}>
             <p>I am child </p>
             </Home>
+
           </div>
         </div>
-
         </div>
     );
   }
