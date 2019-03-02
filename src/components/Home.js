@@ -17,7 +17,7 @@ export default class Home extends Component {
         },2000
 
         )
-
+        console.log('Constructor');
     }
 
     onMakeOlder() {
@@ -38,8 +38,35 @@ export default class Home extends Component {
             homeLink:event.target.value
         })
     }
+    componentWillMount(){
+        console.log("componentWillMount ");
+    }
+    componentDidMount(){
+        console.log("componentDidMount")
+    }
+    componentWillReceiveProps(nextProps){
+        console.log("componentWillReceiveProps")
+    }
+    shouldComponentUpdate(nextProps,nextState){
+        console.log("shouldComponentUpdate",nextProps,nextState);
+        if(nextState.status===1){
+            return false;
+        }
+        return true;
+    }
+    componentWillUpdate(nextProps,nextState){
+        console.log("Component wille update",nextProps,nextState );
+    }
+    componentDidUpdate(nextProps,nextState){
+        console.log("componentDidUpdate",nextProps,nextState)
+    }
+    componentWillUnmount() {
+        console.log('Component will unmount');
+    }
 
-  render() {
+
+    render() {
+        console.log('render');
     return (
        <div className="container">
           <div className="row">
@@ -51,7 +78,7 @@ export default class Home extends Component {
               <button onClick={this.handleGreeet.bind(this)} className="btn btn-primary">Make me</button>
               <hr/>
               <button onClick={this.onchangeLink.bind(this)} className="btn btn-primary">Bro Link</button>
-              <input type="text"  value={this.props.initialName} onChange={(event)=>this.onHandleChange(event)}/>
+              <input type="text" defaultValue={this.props.initialName}  value={this.state.initialName} onChange={(event)=>this.onHandleChange(event)}/>
              </div>
           </div>
         </div>
